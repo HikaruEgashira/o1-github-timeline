@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent } from 'react';
+import { useState, type ChangeEvent, type CSSProperties } from 'react';
 import axios from 'axios';
 import Timeline from '../components/Timeline';
 import Summary from '../components/Summary';
@@ -80,7 +80,7 @@ export default function Home() {
     );
 }
 
-const styles: { [key: string]: React.CSSProperties } = {
+const styles: { [key: string]: CSSProperties } = {
     container: {
         maxWidth: '800px',
         margin: '0 auto',
