@@ -58,13 +58,13 @@ The application is automatically deployed to GitHub Pages using GitHub Actions u
 
 ## Configuration for GitHub Pages
 
-1. **Set the `basePath` in `next.config.js`:**
+The site is exported as static HTML via `output: "export"` in `next.config.ts`, so `next build` writes the deployable site to the `out` directory.
 
-   Replace `/your-repo-name` with the name of your GitHub repository.
+The `basePath` and `assetPrefix` are read from the `NEXT_PUBLIC_BASE_PATH` environment variable. The deployment workflow sets this automatically from the `actions/configure-pages` output, so no manual edit is required. For local builds against a project page, set it explicitly, e.g.:
 
-2. **Update the `homepage` in `package.json`:**
-
-   Although not mandatory for Next.js, it's good practice to set the `homepage` field if you plan to use other deployment methods.
+```bash
+NEXT_PUBLIC_BASE_PATH=/your-repo-name npm run build
+```
 
 ## License
 
