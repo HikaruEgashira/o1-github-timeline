@@ -1,13 +1,15 @@
-const isProd = process.env.NODE_ENV === "production";
+import type { NextConfig } from "next";
 
-const nextConfig = {
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+const nextConfig: NextConfig = {
+	output: "export",
 	reactStrictMode: true,
-	basePath: isProd ? "/your-repo-name" : "",
-	assetPrefix: isProd ? "/your-repo-name/" : "",
+	basePath,
+	assetPrefix: basePath,
 	trailingSlash: true,
 	images: {
-		loader: "akamai",
-		path: "",
+		unoptimized: true,
 	},
 };
 
